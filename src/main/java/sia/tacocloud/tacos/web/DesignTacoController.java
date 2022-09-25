@@ -13,6 +13,7 @@ import sia.tacocloud.tacos.Ingredient;
 import sia.tacocloud.tacos.Ingredient.Type;
 import sia.tacocloud.tacos.Taco;
 import sia.tacocloud.tacos.TacoOrder;
+import sia.tacocloud.tacos.TacoUDT;
 import sia.tacocloud.tacos.data.IngredientRepository;
 
 import javax.validation.Valid;
@@ -58,7 +59,7 @@ public class DesignTacoController {
 
   @PostMapping
   public String processTaco(
-      @Valid Taco taco,
+      @Valid TacoUDT taco,
       Errors errors,
       @ModelAttribute TacoOrder tacoOrder) {
 
