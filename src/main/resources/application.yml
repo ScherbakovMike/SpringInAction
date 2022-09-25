@@ -2,3 +2,12 @@ spring:
   datasource:
     generate-unique-name: false
     name: tacocloud
+
+  jpa:
+    defer-datasource-initialization: true
+    generate-ddl: true
+
+  sql:
+    init:
+      mode: always
+
