@@ -1,14 +1,16 @@
 package sia.tacocloud.tacos;
 
-import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Entity
+@Document(collection = "ingredient")
 @RequiredArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
+@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Ingredient {
 
   @Id

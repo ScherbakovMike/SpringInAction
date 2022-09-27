@@ -11,3 +11,7 @@ spring:
     init:
       mode: always
 
+
+  mongodb:
+    embedded:
+      version: "4.0.21"
