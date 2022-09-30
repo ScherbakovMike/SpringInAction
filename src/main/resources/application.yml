@@ -6,12 +6,18 @@ spring:
   jpa:
     defer-datasource-initialization: true
     generate-ddl: true
-
   sql:
     init:
       mode: always
 
+  security:
+    oauth2:
+      client:
+        registration:
 
   mongodb:
     embedded:
       version: "4.0.21"
+
+logging:
+  level.: DEBUG
