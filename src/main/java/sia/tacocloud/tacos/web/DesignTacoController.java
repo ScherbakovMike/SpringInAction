@@ -1,6 +1,8 @@
 package sia.tacocloud.tacos.web;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -60,8 +62,10 @@ public class DesignTacoController {
   public String processTaco(
       @Valid Taco taco,
       Errors errors,
-      @ModelAttribute TacoOrder tacoOrder) {
-
+      @ModelAttribute TacoOrder tacoOrder,
+      @AuthenticationPrincipal User user
+  ) {
+    System.out.println(user);
     if(errors.hasErrors()) {
       return "design";
     }

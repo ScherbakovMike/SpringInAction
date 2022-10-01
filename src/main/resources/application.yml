@@ -10,10 +10,10 @@ spring:
     init:
       mode: always
 
-  security:
-    oauth2:
-      client:
-        registration:
+#  security:
+#    oauth2:
+#      client:
+#        registration:
 
   mongodb:
     embedded:

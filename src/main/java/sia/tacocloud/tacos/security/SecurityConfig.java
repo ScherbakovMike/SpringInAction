@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import sia.tacocloud.tacos.data.UserRepository;
 
 @Configuration
-@EnableGlobalMethodSecurity
+//@EnableGlobalMethodSecurity
 public class SecurityConfig {
 
   @Bean
