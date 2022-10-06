@@ -33,7 +33,7 @@ public class User implements UserDetails {
   }
 
   @Id
-  private String id;
+  private Long id;
 
   private String username;
   private String password;
@@ -46,7 +46,7 @@ public class User implements UserDetails {
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
-    return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+    return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
   }
 
   @Override
