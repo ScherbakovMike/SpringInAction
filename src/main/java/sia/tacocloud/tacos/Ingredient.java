@@ -1,19 +1,19 @@
 package sia.tacocloud.tacos;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.io.Serializable;
 
 @Data
 @Document(collection = "ingredient")
 @RequiredArgsConstructor
 @AllArgsConstructor
 //@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
-public class Ingredient {
+public class Ingredient implements Serializable {
 
   @Id
   private String id;

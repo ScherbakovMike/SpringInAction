@@ -9,13 +9,14 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @RestResource(rel="tacos", path="tacos")
-public class Taco {
+public class Taco implements Serializable {
 
   @Id
   String id;

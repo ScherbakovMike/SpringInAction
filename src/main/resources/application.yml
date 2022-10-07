@@ -15,6 +15,9 @@ spring:
   mongodb:
     embedded:
       version: "4.0.21"
+  jms:
+    template:
+      default-destination: tacocloud.order.queue
 
 logging:
   level.: DEBUG

@@ -1,8 +1,8 @@
 package sia.tacocloud.tacos.web;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +17,7 @@ import sia.tacocloud.tacos.Ingredient.Type;
 import sia.tacocloud.tacos.Taco;
 import sia.tacocloud.tacos.TacoOrder;
 import sia.tacocloud.tacos.data.IngredientRepository;
+import sia.tacocloud.tacos.messaging.OrderMessagingService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -25,13 +26,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/design")
 @SessionAttributes("tacoOrder")
+@RequiredArgsConstructor
 public class DesignTacoController {
 
   private final IngredientRepository ingredientRepository;
-
-  public DesignTacoController(IngredientRepository ingredientRepository) {
-    this.ingredientRepository = ingredientRepository;
-  }
+  private final OrderMessagingService messageService;
 
   @ModelAttribute
   public void addIngredientsToModel(Model model) {
@@ -71,6 +70,7 @@ public class DesignTacoController {
       return "design";
     }
 
+    messageService.sendTaco(taco);
     tacoOrder.addTaco(taco);
     log.info("Processing taco: {}", taco);
 
