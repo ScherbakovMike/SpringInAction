@@ -2,9 +2,11 @@ package sia.tacocloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import sia.tacocloud.tacos.AppProperties;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"reactor", "sia.tacocloud"})
 public class TacoCloudApplication {
 
     public final AppProperties appProperties;
